@@ -79,7 +79,7 @@ void AgregarEdad(){
 
 void mostrarEdades(){
     system("cls || clear");
-    cout<<"CANTIDAD "<< cantidad <<endl;
+
     for (int i = 1; i <= cantidad; i++)
     {
         cout<<"Edad #"<< i << " : " <<ages[i]<<endl;
