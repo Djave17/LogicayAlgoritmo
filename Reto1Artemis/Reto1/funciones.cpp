@@ -79,27 +79,44 @@ void addBook(Libro *libros, int &contador){
 }
 
 void showBooks(Libro *libros, int contador){
-    
+    if(contador == 0){
+        cout<<"No hay libros registrados"<<endl;
+        return;
+    }
     for (int i = 0; i < contador; i++)
     {
+        cout<<"-------Libro "<<i+1<<"-------"<<endl;
         cout<<"Titulo: "<<libros[i].title<<endl;
         cout<<"Autor: "<<libros[i].autor<<endl;
         cout<<"Año de publicacion: "<<libros[i].date<<endl;
         cout<<"ISBN: "<<libros[i].isbn<<endl;
+        cout<<endl;
     }
     
 }
 
 void showRecentBooks(Libro *libros, int contador){
-   
+    
+    cout<<"-------Libros publicados en los ultimos 5 años-------"<<endl;
+    
+    if (contador == 0)
+    {
+        cout<<"No hay libros recientes..."<<endl;
+        return;
+    }
     for (int i = 0; i < contador; i++)
     {
-        if (CurrentYear - libros[i].date < 5)
+        
+        
+        if (CurrentYear - libros[i].date <= 5)
         {
+            cout<<"-------Libro "<<i+1<<"-------"<<endl;
             cout<<"Titulo: "<<libros[i].title<<endl;
             cout<<"Autor: "<<libros[i].autor<<endl;
             cout<<"Año de publicacion: "<<libros[i].date<<endl;
             cout<<"ISBN: "<<libros[i].isbn<<endl;
+            
+            
         }
     }
     
@@ -108,8 +125,11 @@ void showRecentBooks(Libro *libros, int contador){
 void menu(Libro *libros, int &contador){
     
     int op;
+
+    int l; 
     do
     {
+        system ("clear");
         cout<<"Bienvenido al sistema de registro de libros"<<endl;
         cout<<"1. Agregar un libro"<<endl;
         cout<<"2. Mostrar todos los libros"<<endl;
@@ -120,26 +140,39 @@ void menu(Libro *libros, int &contador){
         switch (op)
         {
         case 1:
-            
+            system ("clear");
             addBook(libros, contador);
+            cout<<"Libro agregado correctamente"<<endl;
+            cout<<"Ingrese una tecla para continuar... "<<endl;
+            cin>>l; 
            
             
             break;
         case 2:
+            system ("clear");
             showBooks(libros, contador);
+            
+            cout<<endl<<"Ingrese una tecla para continuar... ";
+            cin>>l; 
            
             
             break;
         case 3:
+            system ("clear");
             showRecentBooks(libros, contador);
+            cout<<endl<< "Ingrese una tecla para continuar... ";
+            cin>>l; 
             
             
             break;
         case 4:
+            system ("clear");
             cout<<"Gracias por utilizar el sistema de registro de libros"<<endl;
             break;
         default:
             cout<<"Opcion no valida"<<endl;
+            cout<<endl<< "Ingrese una tecla para continuar... ";
+            cin>>l; 
             break;
         }
     } while (op != 4);
