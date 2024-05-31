@@ -21,14 +21,15 @@
 ○ No permitir que el año de publicación sea menor a 1900.*/
 
 #include <iostream>
+
 #include <string>
-#include <ctime>
 #include "funciones.cpp"
 
 using namespace std;
 
 int main()
 {
+    
     Libro libros[MAX_BOOKS];
     int contador = 0;
     menu(libros, contador);

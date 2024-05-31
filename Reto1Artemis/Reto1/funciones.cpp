@@ -33,6 +33,7 @@ void menu(Libro *libros, int &contador);
 void addBook(Libro *libros, int &contador){
     
     int op; 
+    int op2; 
     cout<<"Bienvedido al sistema de registro de libros"<<endl;
     do
     {
@@ -73,7 +74,21 @@ void addBook(Libro *libros, int &contador){
         fflush(stdin);
         contador++;
         cout<<"Desea agregar otro libro? 1. Si 2. No"<<endl;
-        cin>>op;
+        cin>>op2;
+        switch (op)
+        {
+        case 1:
+            return addBook(libros, contador);
+            
+            break;
+        case 2:
+            return menu(libros, contador);
+
+            break;
+        
+        default:
+            break;
+        }
     } while (op == 1);
     
 }
@@ -98,12 +113,10 @@ void showBooks(Libro *libros, int contador){
 void showRecentBooks(Libro *libros, int contador){
     
     cout<<"-------Libros publicados en los ultimos 5 años-------"<<endl;
+
     
-    if (contador == 0)
-    {
-        cout<<"No hay libros recientes..."<<endl;
-        return;
-    }
+    
+    
     for (int i = 0; i < contador; i++)
     {
         
@@ -119,6 +132,16 @@ void showRecentBooks(Libro *libros, int contador){
             
         }
     }
+
+    for (int f = 0; f < contador; f++)
+    {
+        if (contador == 0||CurrentYear - libros[f].date > 5 )
+        {
+        cout<<"No hay libros recientes..."<<endl;
+        return;
+        }
+        
+    }
     
 }
 
@@ -126,7 +149,7 @@ void menu(Libro *libros, int &contador){
     
     int op;
 
-    int l; 
+    char l; 
     do
     {
         system ("clear");
