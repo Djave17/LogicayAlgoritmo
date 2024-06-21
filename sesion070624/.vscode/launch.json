@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/davidsanchez/REPOSITORIO DURAN /LogAlg-JADG/sesion070624",
+      "program": "/Users/davidsanchez/REPOSITORIO DURAN /LogAlg-JADG/sesion070624/build/Debug/outDebug"
+    }
+  ]
+}
